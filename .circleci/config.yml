@@ -6,4 +6,4 @@ jobs:
     deploy:
       branch: master
       commands:
-        - firebase deploy --project "mymarkdown2" --token "1/w1qvnmL6Y9q3uluzF3PV3-lXA1IBtRN1-SSVSaKo52I"
+        - firebase deploy --project "$FIREBASE_PJ" --token "$FIREBASE_TOKEN"
