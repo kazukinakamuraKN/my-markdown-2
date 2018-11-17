@@ -1,14 +1,28 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <Home v-if="!isLogin"></Home>
+    <Editor v-if="isLogin"></Editor>
+    <!--<img src="./assets/logo.png">
+    <router-view/>-->
   </div>
 </template>
 
 <script>
+import Home from "./components/Home.vue";
+import Editor from "./components/Editor.vue";
+
 export default {
-  name: 'App'
-}
+  name: 'App',
+  data() {
+    return {
+      isLogin: false
+    };
+  },
+  components: {
+    Home: Home,
+    Editor: Editor
+  }
+};
 </script>
 
 <style>
