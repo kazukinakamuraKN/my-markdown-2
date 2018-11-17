@@ -31,9 +31,10 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
-          name: 'Build Client Code(react-scripts によるビルド)'
+          name: 'Build Client Code(react-scripts によるビルド実行)'
           command: npm run build
       - run:
           name: 'Deploy to Hosting'
-          commands:
-            - firebase deploy --project "$FIREBASE_PJ" --token "$FIREBASE_TOKEN"
+          command: >- 
+              ln -s ./node_modules/firebase-tools/bin/firebase . &&
+              ./firebase deploy --only hosting --project "$FIREBASE_PJ" --token "$FIREBASE_TOKEN"
