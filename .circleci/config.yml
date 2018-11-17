@@ -35,5 +35,5 @@ jobs:
           command: npm run build
       - run:
           name: 'Deploy to Hosting'
-          command:
+          commands:
             - firebase deploy --project "$FIREBASE_PJ" --token "$FIREBASE_TOKEN"
