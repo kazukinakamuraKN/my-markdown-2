@@ -37,4 +37,4 @@ jobs:
           
       - run:
           name: 'Deploy to Hosting'
-          commands: - firebase deploy --only hosting --project "$FIREBASE_PJ" --token "$FIREBASE_TOKEN"
+          commands: firebase deploy --only hosting --project "$FIREBASE_PJ" --token "$FIREBASE_TOKEN"
