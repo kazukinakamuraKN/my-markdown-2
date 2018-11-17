@@ -40,5 +40,4 @@ jobs:
           attach_workspace:
             at: .
           command: >- 
-              ln -s ./node_modules/firebase-tools/bin/firebase . &&
-              ./firebase deploy --only hosting --project "$FIREBASE_PJ" --token "$FIREBASE_TOKEN"
+            ./node_modules/firebase-tools/bin/firebase deploy --only hosting --project "$FIREBASE_PJ" --token "$FIREBASE_TOKEN"
