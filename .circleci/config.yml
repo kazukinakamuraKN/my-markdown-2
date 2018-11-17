@@ -22,13 +22,9 @@ jobs:
 
       - run: npm install
 
-      - run: npm audit fix
-
       - run:
           name: 'Install Dependecies'
           command: npm install --save-dev firebase-tools
-
-      - run: npm audit fix
 
       - save_cache:
           paths:
@@ -38,6 +34,7 @@ jobs:
       - run:
           name: 'Build Client Code(react-scripts によるビルド実行)'
           command: npm run build
+
       - run:
           name: 'Deploy to Hosting'
           attach_workspace:
