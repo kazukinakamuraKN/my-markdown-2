@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import Home from "./components/Home.vue";
+import Home   from "./components/Home.vue";
 import Editor from "./components/Editor.vue";
 
 export default {
-  name: 'App',
+  name: 'app',
   data() {
     return {
       isLogin: false
