@@ -37,4 +37,4 @@ jobs:
           
       - run:
           name: 'Deploy to Hosting'
-          command: ./home/circleci/repo/node_modules/firebase-tools/bin/firebase deploy --only hosting --project "$FIREBASE_PJ" --token "$FIREBASE_TOKEN"
+          command: firebase deploy --only hosting --project "$FIREBASE_PJ" --token "$FIREBASE_TOKEN"
