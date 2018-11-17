@@ -35,6 +35,9 @@ jobs:
           name: 'Build Client Code(react-scripts によるビルド実行)'
           command: npm run build
           
+      - attach_workspace:
+          at: .
+          
       - run:
           name: 'Deploy to Hosting'
-          commands: firebase deploy --only hosting --project "$FIREBASE_PJ" --token "$FIREBASE_TOKEN"
+          command: firebase deploy --only hosting --project "$FIREBASE_PJ" --token "$FIREBASE_TOKEN"
