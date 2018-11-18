@@ -5,12 +5,12 @@
 </template>
 
 <script>
-  export default {
-  	name: "loading",
-  	data() {
-  		return {
-  			msg: "読み込んでいます"
-  		};
-  	}
+export default {
+  name: 'loading',
+  data () {
+    return {
+      msg: '読み込んでいます'
+    }
   }
+}
 </script>

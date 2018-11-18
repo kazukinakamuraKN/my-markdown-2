@@ -9,40 +9,38 @@
 </template>
 
 <script>
-import Home   from "./components/Home.vue";
-import Editor from "./components/Editor.vue";
-import Loading from "./components/Loading.vue";
+import Home from './components/Home.vue'
+import Editor from './components/Editor.vue'
+import Loading from './components/Loading.vue'
 
 export default {
   name: 'app',
-  data() {
+  data () {
     return {
       isLogin: false,
       userData: null,
       loaded: false
-    };
+    }
   },
-  beforeCreate: function() {
+  beforeCreate: function () {
     firebase.auth().onAuthStateChanged(user => {
-      console.log(user);
-      if(user) {
-        this.isLogin = true;
-        this.userData = user;
-
+      console.log(user)
+      if (user) {
+        this.isLogin = true
+        this.userData = user
       } else {
-        this.isLogin = false;
-        this.userData = null;
-
+        this.isLogin = false
+        this.userData = null
       }
-      this.loaded = true;
-    });
+      this.loaded = true
+    })
   },
   components: {
     Home: Home,
     Editor: Editor,
     Loading: Loading
   }
-};
+}
 </script>
 
 <style>

@@ -7,19 +7,17 @@
 
 <script>
 export default {
-  name: "home",
-  data() {
+  name: 'home',
+  data () {
     return {
-      msg: "Welcome to MyMarkdown"
-    };
+      msg: 'Welcome to MyMarkdown'
+    }
   },
   methods: {
-    googleLogin: function() {
-      firebase
-      .auth()
-      .signInWithRedirect(new firebase.auth.GoogleAuthProvider());
-      this.loaded = false;
+    googleLogin: function () {
+      firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+      this.loaded = false
     }
   }
-};
+}
 </script>
