@@ -5,9 +5,11 @@
     <button @click="logout">ログアウト</button>
     <div class="editorWrapper">
       <div class="memoListWrapper">
-        <div class="memoList" v-for="(memo, index) in memos" :key="index" @click="selectMemo(index)" :data-selected="index == selectedIndex">
-          <p class="memoTitle">{{ displayTitle(memo.markdown)}}</p>
-        </div>
+        <draggable>
+          <div class="memoList" v-for="(memo, index) in memos" :key="index" @click="selectMemo(index)" :data-selected="index == selectedIndex">
+            <p class="memoTitle">{{ displayTitle(memo.markdown)}}</p>
+          </div>
+        </draggable>
         <button class="addMemoBtn" @click="addMemo">メモの追加</button>
       </div>
       <textarea class="markdown" v-model="memos[selectedIndex].markdown"></textarea>
@@ -18,9 +20,13 @@
 
 <script>
 import marked from 'marked'
+import draggable from 'vuedraggable'
 export default {
   name: 'editor',
   props: ['user'],
+  components: {
+    draggable,
+  },
   data () {
     return {
       memos: [
