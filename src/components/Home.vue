@@ -18,6 +18,7 @@ export default {
       firebase
       .auth()
       .signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+      this.loaded = false;
     }
   }
 };

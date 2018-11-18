@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <Home v-if="!isLogin"></Home>
-    <Editor v-if="isLogin" :user="userData"></Editor>
+    <Home v-if="!isLogin && loaded"></Home>
+    <Editor v-if="isLogin && loaded" :user="userData"></Editor>
+    <Loading v-if="!loaded"></Loading>
     <!--<img src="./assets/logo.png">
     <router-view/>-->
   </div>
@@ -10,30 +11,36 @@
 <script>
 import Home   from "./components/Home.vue";
 import Editor from "./components/Editor.vue";
+import Loading from "./components/Loading.vue";
 
 export default {
   name: 'app',
   data() {
     return {
       isLogin: false,
-      userData: null
+      userData: null,
+      loaded: false
     };
   },
-  created: function() {
+  beforeCreate: function() {
     firebase.auth().onAuthStateChanged(user => {
       console.log(user);
       if(user) {
         this.isLogin = true;
         this.userData = user;
+
       } else {
         this.isLogin = false;
         this.userData = null;
+
       }
+      this.loaded = true;
     });
   },
   components: {
     Home: Home,
-    Editor: Editor
+    Editor: Editor,
+    Loading: Loading
   }
 };
 </script>
